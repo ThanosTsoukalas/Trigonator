@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 
+
 void display_info(triangle reffered_obj){
     // υπολογισμός των πλευρών του τριγώνου
     float ab = sqrtf(
@@ -17,6 +18,14 @@ void display_info(triangle reffered_obj){
         ((reffered_obj.c.x - reffered_obj.b.x) * (reffered_obj.c.x - reffered_obj.b.x)) +
         ((reffered_obj.c.y - reffered_obj.b.y) * (reffered_obj.c.y - reffered_obj.b.y))
     );
+    
+    /*
+        Χρησμοποιώ έδω (και στις περισσότερες συναρτήσεις)
+        την μέθοδο πολλαπλασιασμού μιας τιμής με τον εαυτό της
+        για να βρούμε το τετράγωνό της. Αυτό το κάνω γιατί είναι 
+        η απλούστερη (και πιο γρήγορη κατά την εκτέλεση) μέθοδος,
+        σε σχέση με την std::powf([οποιαδήποτε τιμή], 2)
+    */
     
     // βρίσκουμε την μεγαλύτερη πλευρά (για να μπορούμε και μετά να εξετάσουμε αν το τρίγωνο είναι)
     // ορθογώνιο
@@ -113,4 +122,16 @@ void display_info(triangle reffered_obj){
 
     
     std::cout << std::endl << "Τύπος ορθογωνίου: " << triangle_type << std::endl;
+}
+
+void display_rect_info (rectangle reffered_rect){
+    //  βρίσκουμε την διαγώνιο του τετραγώνου
+
+    float ab = sqrtf(
+        ((reffered_rect.a.x - reffered_rect.b.x) * (reffered_rect.a.x - reffered_rect.b.x)) +
+        ((reffered_rect.a.y - reffered_rect.b.y) * (reffered_rect.a.y -reffered_rect.b.y))
+    );
+
+    // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
+    
 }
