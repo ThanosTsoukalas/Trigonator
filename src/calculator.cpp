@@ -83,8 +83,8 @@ void display_info(triangle reffered_obj){
     std:: cout << "Πληροφορίες δοσμένου τριγώνου: " << std::endl << std::endl;
 
     std::cout << "(ΑΒ): " << ab << std::endl;
-    std::cout << "(ΑΓ)" << ac << std::endl;
-    std::cout << "(ΓΒ)" << cb << std::endl << std::endl;
+    std::cout << "(ΑΓ): " << ac << std::endl;
+    std::cout << "(ΓΒ): " << cb << std::endl << std::endl;
     
     if (largest_side == &ab)
     {
