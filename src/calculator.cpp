@@ -124,7 +124,7 @@ void DisplayInfo(triangle refferedObj){
     std::cout << std::endl << "Τύπος ορθογωνίου: " << triangle_type << std::endl;
 }
 
-void display_rect_info (rectangle refferedRect){
+void DisplayRectInfo(rectangle refferedRect){
     //  βρίσκουμε την διαγώνιο του τετραγώνου
 
     float ab = sqrtf(
@@ -134,5 +134,13 @@ void display_rect_info (rectangle refferedRect){
 
     // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
     
-    float side_length
+    float side_length = sqrtf((ab * ab)/2);
+
+    float perimeter = side_length * 4;
+
+    std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
+    std::cout << "Διαγώνιος: " << ab << std::endl;
+    std::cout << "Πλευρά: " << side_length << std::endl;
+    std::cout << "Περίμετρος: " << perimeter << std::endl;
+
 }
