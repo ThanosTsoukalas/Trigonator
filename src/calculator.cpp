@@ -4,19 +4,19 @@
 #include <cmath>
 
 
-void display_info(triangle reffered_obj){
+void DisplayInfo(triangle refferedObj){
     // υπολογισμός των πλευρών του τριγώνου
     float ab = sqrtf(
-        ((reffered_obj.a.x - reffered_obj.b.x) * (reffered_obj.a.x - reffered_obj.b.x)) +
-        ((reffered_obj.a.y - reffered_obj.b.y) * (reffered_obj.a.y - reffered_obj.b.y))
+        ((refferedObj.a.x - refferedObj.b.x) * (refferedObj.a.x - refferedObj.b.x)) +
+        ((refferedObj.a.y - refferedObj.b.y) * (refferedObj.a.y - refferedObj.b.y))
     );
     float ac = sqrtf(
-        ((reffered_obj.a.x - reffered_obj.c.x) * (reffered_obj.a.x - reffered_obj.c.x)) +
-        ((reffered_obj.a.y - reffered_obj.c.y) * (reffered_obj.a.y - reffered_obj.c.y))
+        ((refferedObj.a.x - refferedObj.c.x) * (refferedObj.a.x - refferedObj.c.x)) +
+        ((refferedObj.a.y - refferedObj.c.y) * (refferedObj.a.y - refferedObj.c.y))
     );
     float cb = sqrtf(
-        ((reffered_obj.c.x - reffered_obj.b.x) * (reffered_obj.c.x - reffered_obj.b.x)) +
-        ((reffered_obj.c.y - reffered_obj.b.y) * (reffered_obj.c.y - reffered_obj.b.y))
+        ((refferedObj.c.x - refferedObj.b.x) * (refferedObj.c.x - refferedObj.b.x)) +
+        ((refferedObj.c.y - refferedObj.b.y) * (refferedObj.c.y - refferedObj.b.y))
     );
     
     /*
@@ -124,14 +124,15 @@ void display_info(triangle reffered_obj){
     std::cout << std::endl << "Τύπος ορθογωνίου: " << triangle_type << std::endl;
 }
 
-void display_rect_info (rectangle reffered_rect){
+void display_rect_info (rectangle refferedRect){
     //  βρίσκουμε την διαγώνιο του τετραγώνου
 
     float ab = sqrtf(
-        ((reffered_rect.a.x - reffered_rect.b.x) * (reffered_rect.a.x - reffered_rect.b.x)) +
-        ((reffered_rect.a.y - reffered_rect.b.y) * (reffered_rect.a.y -reffered_rect.b.y))
+        ((refferedRect.a.x - refferedRect.b.x) * (refferedRect.a.x - refferedRect.b.x)) +
+        ((refferedRect.a.y - refferedRect.b.y) * (refferedRect.a.y -refferedRect.b.y))
     );
 
     // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
     
+    float side_length
 }
