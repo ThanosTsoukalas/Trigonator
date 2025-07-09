@@ -13,7 +13,7 @@ int main (){
     while (true)
     {   
         int option;
-        std::cout << "Τριγωνέιτορ v1.0" << std::endl << std::endl; 
+        std::cout << "Τριγωνέιτορ v1.1" << std::endl << std::endl; 
         std::cout << "Επιλέξτε σχήμα: " << std::endl;
         std::cout << "[1] Τρίγωνο" << std::endl;
         std::cout << "[2] Τετράγωνο" << std::endl;
