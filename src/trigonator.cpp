@@ -6,9 +6,12 @@
     αλλά το πρόγραμμα θα το αποκαλώ για πάντα «Τριγωνέιτορ»
 */
 int main (){
-
-    system("chcp 65001");
-    system("cls");
+    #ifdef _WIN32
+        system("chcp 65001");
+        system("cls");
+    #elif __linux__
+        system("clear");
+    #endif
 
     while (true)
     {   
