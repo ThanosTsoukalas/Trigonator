@@ -51,7 +51,7 @@ int main (){
 
             triangle usr_triangle = {a, b, c};
 
-            DisplayInfo(usr_triangle);
+            DisplayTriangleInfo(usr_triangle);
         }
         else if (option == 2)
         {

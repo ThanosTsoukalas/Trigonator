@@ -4,7 +4,7 @@
 #include <cmath>
 
 
-void DisplayInfo(triangle refferedObj){
+void DisplayTriangleInfo(triangle refferedObj){
     // υπολογισμός των πλευρών του τριγώνου
     float ab = sqrtf(
         ((refferedObj.a.x - refferedObj.b.x) * (refferedObj.a.x - refferedObj.b.x)) +

@@ -18,6 +18,6 @@ typedef struct rectangle{
 } rectangle;
 
 
-void DisplayInfo(triangle refferedObj);
+void DisplayTriangleInfo(triangle refferedObj);
 void DisplayRectInfo(rectangle refferedRect);
 #endif
