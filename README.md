@@ -4,3 +4,5 @@
 # Διαδικασία Βuilding
 Χρησιμοποιώ το GNU Make (Makefile). Για να ξεκινήσετε την διαδικασία Building στα Windows, απλά γράψτε την εντολή `mingw32-make -f makefile.windows`. Για λειτουργικά που βασίζονται στα Linux, απλά γράψτε την εντολή `make -f makefile.linux`.
 
+# Other Languages
+Read this in [English](README.en.md)
