@@ -121,7 +121,7 @@ void DisplayTriangleInfo(triangle refferedObj){
     }
 
     
-    std::cout << std::endl << "Τύπος ορθογωνίου: " << triangle_type << std::endl;
+    std::cout << std::endl << "Τύπος τριγώνου: " << triangle_type << std::endl;
 }
 
 void DisplayRectInfo(rectangle refferedRect){
