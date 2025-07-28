@@ -1,2 +1,2 @@
 all:
-	g++ src/trigonator.cpp src/calculator.cpp src/calculator.h -o trigonator.out
+	g++ src/trigonator.cpp src/calculator.cpp src/calculator.h -o trigonator -static-libstdc++ -static-libgcc
