@@ -4,3 +4,7 @@ trigonator.exe
 .vscode/settings.json
 trigonator.out
 trigonator
+include
+src/glad.c
+output
+.gitignore
