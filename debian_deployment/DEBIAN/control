@@ -1,0 +1,8 @@
+Package: trigonator
+Version: 1.3
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: 
+Maintainer: Thanos Tsoukalas
+Description: A simple geometry calculator that runs in the terminal
