@@ -7,8 +7,8 @@ trigonator
 include
 src/glad.c
 output
-.gitignore
 .vs/ProjectSettings.json
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
 debian_deployment.deb
+trigonator.deb
