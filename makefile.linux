@@ -1,2 +1,2 @@
 default:
-	g++ $(wildcard src/*.cpp) -o trigonator -static-libstdc++ -static-libgcc
+	g++ $(wildcard src/*.cpp) -o debian_deployment/usr/bin/trigonator -static-libstdc++ -static-libgcc
