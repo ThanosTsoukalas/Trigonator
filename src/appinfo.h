@@ -1,7 +1,7 @@
 #ifndef APP_INFO_H
 #define APP_INFO_H
 
-#define APP_VER "1.2"
+#define APP_VER "1.3"
 #define RELEASE_DATE "Αύγουστος 2025"
 #define RELEASE_YEAR "2025"
 #define LICENSE "MIT"
