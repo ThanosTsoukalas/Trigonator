@@ -27,7 +27,6 @@ int main (){
         {
             Triangle triangle_to_analyze = GetTriangleVertices();
             TriangleProperties triangle_props = CalculateTriangleProperties(&triangle_to_analyze);
-            std::cout << "Returned properties" << std::endl;
             DisplayTriangleInfo(triangle_props);
         }
         else if (option == "Ανάλυση Τετραγώνου")

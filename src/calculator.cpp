@@ -46,23 +46,19 @@ TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle){
     }
     // Αν είναι τρίγωνο, ξεκινάμε τον υπολογισμό
     if (is_triangle == true){
-        std::cout << "Calculating..." << std::endl;
         // υπολογισμός των πλευρών του τριγώνου
         float ab = sqrtf(
             ((givenTriangle->a.x - givenTriangle->b.x) * (givenTriangle->a.x - givenTriangle->b.x)) +
             ((givenTriangle->a.y - givenTriangle->b.y) * (givenTriangle->a.y - givenTriangle->b.y))
         );
-        std::cout << "Declared ab" << std::endl;
         float ac = sqrtf(
             ((givenTriangle->a.x - givenTriangle->c.x) * (givenTriangle->a.x - givenTriangle->c.x)) +
             ((givenTriangle->a.y - givenTriangle->c.y) * (givenTriangle->a.y - givenTriangle->c.y))
         );
-        std::cout << "Declared ac" << std::endl;
         float cb = sqrtf(
             ((givenTriangle->c.x - givenTriangle->b.x) * (givenTriangle->c.x - givenTriangle->b.x)) +
             ((givenTriangle->c.y - givenTriangle->b.y) * (givenTriangle->c.y - givenTriangle->b.y))
         );
-        std::cout << "Declared cb" << std::endl;
 
         /*
             Χρησμοποιώ έδω (και στις περισσότερες συναρτήσεις)
@@ -74,8 +70,6 @@ TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle){
 
         // βρίσκουμε την μεγαλύτερη πλευρά (για να μπορούμε και μετά να εξετάσουμε αν το τρίγωνο είναι
         // ορθογώνιο)
-
-        std::cout << "Just before the madness begins..." << std::endl;
 
         float* largest_side;
 
