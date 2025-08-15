@@ -1,33 +1,68 @@
-#include "calculator.h"
+#include "types.h"
+#include "validator.h"
 
 #include <iostream>
 #include <cmath>
+#include <vector>
+
+void DisplayRectInfo(Rectangle refferedRect){
+    //  βρίσκουμε την διαγώνιο του τετραγώνου
+
+    float ab = sqrtf(
+        ((refferedRect.a.x - refferedRect.b.x) * (refferedRect.a.x - refferedRect.b.x)) +
+        ((refferedRect.a.y - refferedRect.b.y) * (refferedRect.a.y -refferedRect.b.y))
+    );
+
+    // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
+  
+
+    if (ab > 0){
+        float side_length = sqrtf((ab * ab)/2);
+
+        float perimeter = side_length * 4;
+
+        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
+        std::cout << "Διαγώνιος: " << ab << std::endl;
+        std::cout << "Πλευρά: " << side_length << std::endl;
+        std::cout << "Περίμετρος: " << perimeter << std::endl;
+    } else{
+        std::cout << "Τα δοσμένα σημεία δεν είναι ενός έγκυρου τετραγώνου. Προσπαθήστε ξανά" << std::endl;
+    }
 
 
-void DisplayTriangleInfo(triangle refferedObj){
-    bool is_triangle;
+}
+
+
+TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle){
+    bool is_triangle = false;
     // τσεκάρουμε αν ΟΝΤΩΣ υπάρχει το δοσμένο τρίγωνο
-    if (refferedObj.a.x == refferedObj.b.x && refferedObj.a.x == refferedObj.c.x){
-        is_triangle = false;
-    } else if (refferedObj.a.y == refferedObj.b.y && refferedObj.a.y == refferedObj.c.y){
-        is_triangle = false;
+    if 
+    (
+        CheckForCollinearPoints({givenTriangle->a, givenTriangle->b, givenTriangle->c}) != true 
+        && !(givenTriangle->a.y == givenTriangle->b.y && givenTriangle->a.y == givenTriangle->c.y)
+    )
+    {
+        is_triangle = true;
     }
     // Αν είναι τρίγωνο, ξεκινάμε τον υπολογισμό
-    if (is_triangle){
-        
+    if (is_triangle == true){
+        std::cout << "Calculating..." << std::endl;
         // υπολογισμός των πλευρών του τριγώνου
         float ab = sqrtf(
-            ((refferedObj.a.x - refferedObj.b.x) * (refferedObj.a.x - refferedObj.b.x)) +
-            ((refferedObj.a.y - refferedObj.b.y) * (refferedObj.a.y - refferedObj.b.y))
+            ((givenTriangle->a.x - givenTriangle->b.x) * (givenTriangle->a.x - givenTriangle->b.x)) +
+            ((givenTriangle->a.y - givenTriangle->b.y) * (givenTriangle->a.y - givenTriangle->b.y))
         );
+        std::cout << "Declared ab" << std::endl;
         float ac = sqrtf(
-            ((refferedObj.a.x - refferedObj.c.x) * (refferedObj.a.x - refferedObj.c.x)) +
-            ((refferedObj.a.y - refferedObj.c.y) * (refferedObj.a.y - refferedObj.c.y))
+            ((givenTriangle->a.x - givenTriangle->c.x) * (givenTriangle->a.x - givenTriangle->c.x)) +
+            ((givenTriangle->a.y - givenTriangle->c.y) * (givenTriangle->a.y - givenTriangle->c.y))
         );
+        std::cout << "Declared ac" << std::endl;
         float cb = sqrtf(
-            ((refferedObj.c.x - refferedObj.b.x) * (refferedObj.c.x - refferedObj.b.x)) +
-            ((refferedObj.c.y - refferedObj.b.y) * (refferedObj.c.y - refferedObj.b.y))
+            ((givenTriangle->c.x - givenTriangle->b.x) * (givenTriangle->c.x - givenTriangle->b.x)) +
+            ((givenTriangle->c.y - givenTriangle->b.y) * (givenTriangle->c.y - givenTriangle->b.y))
         );
+        std::cout << "Declared cb" << std::endl;
 
         /*
             Χρησμοποιώ έδω (και στις περισσότερες συναρτήσεις)
@@ -39,26 +74,22 @@ void DisplayTriangleInfo(triangle refferedObj){
 
         // βρίσκουμε την μεγαλύτερη πλευρά (για να μπορούμε και μετά να εξετάσουμε αν το τρίγωνο είναι
         // ορθογώνιο)
+
+        std::cout << "Just before the madness begins..." << std::endl;
+
         float* largest_side;
-        float* minor_sides[2];
 
         if (ab > ac && ab > cb)
         {
             largest_side = &ab;
-            minor_sides[0] = &ac;
-            minor_sides[1] = &cb;
         } 
         else if (ac > ab && ac > cb)
         {
             largest_side = &ac;
-            minor_sides[0] = &ab;
-            minor_sides[1] = &cb;
         }
         else if (cb > ac && cb > ab)
         {
             largest_side = &cb;
-            minor_sides[0] = &ab;
-            minor_sides[1] = &ac;
         }
         else
         {
@@ -76,7 +107,7 @@ void DisplayTriangleInfo(triangle refferedObj){
 
         // ---------------------------------
 
-        if (ab == ac || ac == cb || ab == cb){
+        if (ab == ac && ac == cb && ab == cb){
             triangle_type = "Ισοσκελές";
         }
         else
@@ -89,80 +120,31 @@ void DisplayTriangleInfo(triangle refferedObj){
         if (largest_side != nullptr)
         {
             float largest_side_squared = (*largest_side) * (*largest_side);
-            float minor_sides_sum_and_square = ((*minor_sides[0]) * (*minor_sides[0])) + ((*minor_sides[1]) * (*minor_sides[1]));
+            float minor_sides_square_and_sum;
 
-            if (largest_side_squared == minor_sides_sum_and_square)
+            if (largest_side == &ab)
+                minor_sides_square_and_sum = (ac*ac) + (cb*cb);
+            else if (largest_side == &cb)
+                minor_sides_square_and_sum = (ab*ab) + (ac*ac);
+            else
+                minor_sides_square_and_sum = (ab*ab) + (cb*cb);
+
+            if (largest_side_squared == minor_sides_square_and_sum)
             {
                 triangle_type = triangle_type + " και Ορθογώνιο";
             }
-        }
 
-        // ώρα να δείξουμε τα αποτελέσματα:
-
-        std:: cout << "Πληροφορίες δοσμένου τριγώνου: " << std::endl << std::endl;
-
-        std::cout << "(ΑΒ): " << ab << std::endl;
-        std::cout << "(ΑΓ): " << ac << std::endl;
-        std::cout << "(ΓΒ): " << cb << std::endl << std::endl;
-
-        if (largest_side == &ab)
-        {
-            std::cout << "Μεγαλύτερη πλευρά: AB" << std::endl;
-            std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): ΑΓ, ΓΒ" << std::endl;
-        }
-        else if (largest_side == &ac)
-        {
-            std::cout << "Μεγαλύτερη πλευρά: ΑΓ" << std::endl;
-            std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): ΑΒ, ΓΒ" << std::endl;
-        }
-        else if (largest_side == &cb)
-        {
-            std::cout << "Μεγαλύτερη πλευρά: ΓΒ" << std::endl;
-            std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): ΑΒ, ΑΓ" << std::endl;
-        }
-        else if (largest_side == nullptr){
-            std::cout << "Μεγαλύτερη πλευρά: Δεν υπάρχει μεγ. πλευρά" << std::endl;
-            std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): Δεν βρέθηκαν" << std::endl;
+            return {is_triangle, ab, ac, cb, *largest_side, triangle_type};
         }
         else
         {
-            std::cout << "Μεγαλύτερη πλευρά: ΣΦΑΛΜΑ" << std::endl;
-            std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): ΣΦΑΛΜΑ" << std::endl;
+            return {is_triangle, ab, ac, cb, 0.0f, triangle_type};
         }
-
-
-        std::cout << std::endl << "Τύπος τριγώνου: " << triangle_type << std::endl;
+        
     }
-
-    if (is_triangle == false){
-        std::cout << "Τα σημεία που δώσατε δεν αποτελούν τρίγωνο. Προσπαθήστε ξανά." << std::endl;
+    else
+    {
+        return {is_triangle, 0.0f, 0.0f, 0.0f, 0.0f, "Δεν είναι τρίγωνο"};
     }
-
-}
-
-void DisplayRectInfo(rectangle refferedRect){
-    //  βρίσκουμε την διαγώνιο του τετραγώνου
-
-    float ab = sqrtf(
-        ((refferedRect.a.x - refferedRect.b.x) * (refferedRect.a.x - refferedRect.b.x)) +
-        ((refferedRect.a.y - refferedRect.b.y) * (refferedRect.a.y -refferedRect.b.y))
-    );
-
-    // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
-  
-
-    if (ab < 0){
-        float side_length = sqrtf((ab * ab)/2);
-
-        float perimeter = side_length * 4;
-
-        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
-        std::cout << "Διαγώνιος: " << ab << std::endl;
-        std::cout << "Πλευρά: " << side_length << std::endl;
-        std::cout << "Περίμετρος: " << perimeter << std::endl;
-    } else{
-        std::cout << "Τα δοσμένα σημεία δεν είναι ενός έγκυρου τετραγώνου. Προσπαθήστε ξανά" << std::endl;
-    }
-
 
 }
