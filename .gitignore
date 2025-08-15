@@ -7,10 +7,11 @@ trigonator
 include
 src/glad.c
 output
-.gitignore
 .vs/ProjectSettings.json
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
+debian_deployment.deb
+trigonator.deb
 .VSCodeCounter/2025-08-14_22-27-05/details.md
 .VSCodeCounter/2025-08-14_22-27-05/diff-details.md
 .VSCodeCounter/2025-08-14_22-27-05/diff.csv
