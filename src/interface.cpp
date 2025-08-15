@@ -55,7 +55,6 @@ Triangle GetTriangleVertices()
 
 void DisplayTriangleInfo (TriangleProperties givenTriangle)
 {
-    std::cout << "checkpoint 1" << std::endl;
     if (givenTriangle.is_triangle == true)
     {   
         std::cout << "Πληροφορίες δοσμένου τριγώνου: " << std::endl << std::endl;
