@@ -9,7 +9,7 @@ int main (){
     SetApplicationTitle("Trigonator v"APP_VER);
     SetGreekCharScheme();
 
-    std::cout << "Τριγωνέιτορ v" << APP_VER << std::endl << std::endl;
+    std::cout << "Τριγωνέιτορ v" << APP_VER << dnl;
 
     while (true)
     {   

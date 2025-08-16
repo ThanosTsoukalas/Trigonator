@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+const char* dnl = "\n\n";
+
 std::string DisplayAndGetOption(std::vector<std::string> options)
 {
     int option_couter = 1;
@@ -30,25 +32,25 @@ Triangle GetTriangleVertices()
     Point b;
     Point c;
 
-    std::cout << "Στοιχεία Τριγώνου" << std::endl << std::endl;
+    std::cout << "Στοιχεία Τριγώνου" << dnl;
     std::cout << "Σημείο Α(x, y):" << std::endl;
     std::cout << "x: ";
     std::cin >> a.x;
     std::cout << std::endl << "y: ";
     std::cin >> a.y;
-    std::cout << std::endl << std::endl;
+    std::cout << dnl;
     std::cout << "Σημείο Β(x1, y1):" << std::endl;
     std::cout << "x1: ";
     std::cin >> b.x;
     std::cout << std::endl << "y1: ";
     std::cin >> b.y;
-    std::cout << std::endl << std::endl;
+    std::cout << dnl;
     std::cout << "Σημείο Γ(x2, y2):" << std::endl;
     std::cout << "x2: ";
     std::cin >> c.x;
     std::cout << std::endl << "y2: ";
     std::cin >> c.y;
-    std::cout << std::endl << std::endl;
+    std::cout << dnl;
 
     return {a, b, c};
     
@@ -58,10 +60,10 @@ void DisplayTriangleInfo (TriangleProperties givenTriangle)
 {
     if (givenTriangle.is_triangle == true)
     {   
-        std::cout << "Πληροφορίες δοσμένου τριγώνου: " << std::endl << std::endl;
+        std::cout << "Πληροφορίες δοσμένου τριγώνου: " << dnl;
         std::cout << "(ΑΒ): " << givenTriangle.ab << std::endl;
         std::cout << "(ΑΓ): " << givenTriangle.ac << std::endl;
-        std::cout << "(ΓΒ): " << givenTriangle.cb << std::endl << std::endl;
+        std::cout << "(ΓΒ): " << givenTriangle.cb << dnl;
 
         if (givenTriangle.largest_side == givenTriangle.ab)
         {
@@ -88,7 +90,7 @@ void DisplayTriangleInfo (TriangleProperties givenTriangle)
             std::cout << "Μικρότερες πλευρές (χωρίς ιδιαίτερη σειρά): ΣΦΑΛΜΑ" << std::endl;
         }
 
-        std::cout << "Τύπος τριγώνου: " << givenTriangle.triangle_type << std::endl << std::endl;
+        std::cout << "Τύπος τριγώνου: " << givenTriangle.triangle_type << dnl;
     }
     else
     {
@@ -102,13 +104,13 @@ Rectangle GetRectangleVertices()
     Point a;
     Point b;
 
-    std::cout << "Στοιχεία Τετραγώνου" << std::endl << std::endl;
-    std::cout << "Σημείο Α(x, y): (ένα άκρο της διαγωνίου) " << std::endl << std::endl;
+    std::cout << std::endl << "Στοιχεία Τετραγώνου" << dnl;
+    std::cout << "Σημείο Α(x, y): (ένα άκρο της διαγωνίου) " << dnl;
     std::cout << "x: ";
     std::cin >> a.x;
     std::cout << "y: ";
     std::cin >> a.y;
-    std::cout << "Σημείο Β(x1, y1): (άλλο άκρο της διαγωνίου)" << std::endl << std::endl;
+    std::cout << "Σημείο Β(x1, y1): (άλλο άκρο της διαγωνίου)" << dnl;
     std::cout << "x1: ";
     std::cin >> b.x;
     std::cout << "y1: ";
@@ -121,10 +123,11 @@ void DisplayRectangleInfo (RectangleProperties givenRectangle)
 {
     if (givenRectangle.is_rect == true)
     {
-        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
-        std::cout << "Διαγώνιος: " << givenRectangle.diagonal<< std::endl;
+        std::cout << std::endl;
+        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << dnl;
+        std::cout << "Διαγώνιος: " << givenRectangle.diagonal << std::endl;
         std::cout << "Πλευρά: " << givenRectangle.side_length << std::endl;
-        std::cout << "Περίμετρος: " << givenRectangle.perimeter << std::endl;
+        std::cout << "Περίμετρος: " << givenRectangle.perimeter << dnl;
     }
     else
     {
@@ -138,6 +141,7 @@ void SetApplicationTitle(std::string title)
         system(std::string("title " + title).c_str());
     #endif
 }
+
 void ClearTerminal()
 {
     #ifdef _WIN32
@@ -164,7 +168,7 @@ void DisplayApplicationInfo()
     std::cout << "Εκδόθηκε: " << RELEASE_DATE << std::endl;
     std::cout << "Άδεια Ανοιχτού Κώδικα: " << LICENSE << std::endl;
     std::cout << std::endl;
-    std::cout << "(c) " << RELEASE_YEAR << " " << COPYRIGHT_NOTICE << std::endl << std::endl;
+    std::cout << "(c) " << RELEASE_YEAR << " " << COPYRIGHT_NOTICE << dnl;
 
     std::cout << "Πατήστε οποιοδήποτε κουμπί για συνέχεια στο μενού επιλογών.";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer

@@ -9,6 +9,8 @@
 #include "types.h"
 #include "appinfo.h"
 
+extern const char* dnl; /*double new line*/
+
 std::string DisplayAndGetOption(std::vector<std::string> options);
 
 Triangle GetTriangleVertices();
@@ -22,4 +24,5 @@ void ClearTerminal();
 void DisplayApplicationInfo();
 
 void SetApplicationTitle(std::string title);
+
 #endif
