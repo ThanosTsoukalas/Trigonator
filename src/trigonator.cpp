@@ -6,9 +6,7 @@
 #include <cstdlib>
 
 int main (){
-    #ifdef _WIN32
-        system("title Trigonator v"APP_VER);
-    #endif
+    SetApplicationTitle("Trigonator v"APP_VER);
     SetGreekCharScheme();
 
     std::cout << "Τριγωνέιτορ v" << APP_VER << std::endl << std::endl;
@@ -31,24 +29,9 @@ int main (){
         }
         else if (option == "Ανάλυση Τετραγώνου")
         {
-            Point a;
-            Point b;
-
-            std::cout << "Στοιχεία Τετραγώνου" << std::endl << std::endl;
-            std::cout << "Σημείο Α(x, y): (ένα άκρο της διαγωνίου) " << std::endl << std::endl;
-            std::cout << "x: ";
-            std::cin >> a.x;
-            std::cout << "y: ";
-            std::cin >> a.y;
-            std::cout << "Σημείο Β(x1, y1): (άλλο άκρο της διαγωνίου)";
-            std::cout << "x1: ";
-            std::cin >> b.x;
-            std::cout << "y1: ";
-            std::cin >> b.y;
-
-            Rectangle usr_rectangle = {a, b};
-
-            DisplayRectInfo(usr_rectangle);
+            Rectangle rectangle_to_analyze = GetRectangleVertices();
+            RectangleProperties rectangle_props = CalculateRectangleProperties(&rectangle_to_analyze);
+            DisplayRectangleInfo(rectangle_props);
         }
         else if (option == "Έξοδος")
         {

@@ -14,7 +14,12 @@ std::string DisplayAndGetOption(std::vector<std::string> options);
 Triangle GetTriangleVertices();
 void DisplayTriangleInfo(TriangleProperties givenTriangle);
 
+Rectangle GetRectangleVertices();
+void DisplayRectangleInfo (RectangleProperties givenRectangle);
+
 void SetGreekCharScheme();
 void ClearTerminal();
 void DisplayApplicationInfo();
+
+void SetApplicationTitle(std::string title);
 #endif

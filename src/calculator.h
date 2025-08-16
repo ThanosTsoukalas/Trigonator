@@ -9,5 +9,5 @@
 
 
 TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle);
-void DisplayRectInfo(Rectangle refferedRect);
+RectangleProperties CalculateRectangleProperties (Rectangle *givenRectangle);
 #endif

@@ -23,6 +23,7 @@ std::string DisplayAndGetOption(std::vector<std::string> options)
     
 }
 
+/* Για το τρίγωνο */
 Triangle GetTriangleVertices()
 {
     Point a;
@@ -95,6 +96,48 @@ void DisplayTriangleInfo (TriangleProperties givenTriangle)
     }
 }
 
+/* Για το τετράγωνο */
+Rectangle GetRectangleVertices()
+{
+    Point a;
+    Point b;
+
+    std::cout << "Στοιχεία Τετραγώνου" << std::endl << std::endl;
+    std::cout << "Σημείο Α(x, y): (ένα άκρο της διαγωνίου) " << std::endl << std::endl;
+    std::cout << "x: ";
+    std::cin >> a.x;
+    std::cout << "y: ";
+    std::cin >> a.y;
+    std::cout << "Σημείο Β(x1, y1): (άλλο άκρο της διαγωνίου)" << std::endl << std::endl;
+    std::cout << "x1: ";
+    std::cin >> b.x;
+    std::cout << "y1: ";
+    std::cin >> b.y;
+
+    return {a,b};
+}
+
+void DisplayRectangleInfo (RectangleProperties givenRectangle)
+{
+    if (givenRectangle.is_rect == true)
+    {
+        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
+        std::cout << "Διαγώνιος: " << givenRectangle.diagonal<< std::endl;
+        std::cout << "Πλευρά: " << givenRectangle.side_length << std::endl;
+        std::cout << "Περίμετρος: " << givenRectangle.perimeter << std::endl;
+    }
+    else
+    {
+        std::cout << "Τα δοσμένα σημεία δεν είναι ενός έγκυρου τετραγώνου. Προσπαθήστε ξανά" << std::endl;
+    }
+}
+
+void SetApplicationTitle(std::string title)
+{
+    #ifdef _WIN32
+        system(std::string("title " + title).c_str());
+    #endif
+}
 void ClearTerminal()
 {
     #ifdef _WIN32

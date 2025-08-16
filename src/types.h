@@ -30,6 +30,13 @@ typedef struct TriangleProperties{
     std::string triangle_type;
 }TriangleProperties;
 
+typedef struct RectangleProperties{
+    bool is_rect;
+    float diagonal;
+    float side_length;
+    float perimeter;
+}RectangleProperties;
+
 typedef struct StraightLineEquation{
     // Για συναρτήσεις τύπου y = αχ + β
     float slope;

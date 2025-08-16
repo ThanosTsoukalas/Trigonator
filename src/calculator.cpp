@@ -5,35 +5,31 @@
 #include <cmath>
 #include <vector>
 
-void DisplayRectInfo(Rectangle refferedRect){
-    //  βρίσκουμε την διαγώνιο του τετραγώνου
-
-    float ab = sqrtf(
-        ((refferedRect.a.x - refferedRect.b.x) * (refferedRect.a.x - refferedRect.b.x)) +
-        ((refferedRect.a.y - refferedRect.b.y) * (refferedRect.a.y -refferedRect.b.y))
+RectangleProperties CalculateRectangleProperties (Rectangle *givenRectangle)
+{
+    bool is_rect = false;
+    float diagonal = sqrtf(
+        ((givenRectangle->a.x - givenRectangle->b.x) * (givenRectangle->a.x - givenRectangle->b.x)) +
+        ((givenRectangle->a.y - givenRectangle->b.y) * (givenRectangle->a.y -givenRectangle->b.y))
     );
 
-    // αφού έχουμε την διαγώνιο, μπορούμε να βρούμε και την πλευρά του τετραγώνου
-  
+    if (diagonal > 0)
+    {
+        is_rect = true;
 
-    if (ab > 0){
-        float side_length = sqrtf((ab * ab)/2);
+        float side_length = sqrtf((diagonal * diagonal)/2);
+        float perimeter = side_length*4;
 
-        float perimeter = side_length * 4;
-
-        std::cout << "Πληροφορίες δοσμένου τετραγώνου: " << std::endl << std::endl;
-        std::cout << "Διαγώνιος: " << ab << std::endl;
-        std::cout << "Πλευρά: " << side_length << std::endl;
-        std::cout << "Περίμετρος: " << perimeter << std::endl;
-    } else{
-        std::cout << "Τα δοσμένα σημεία δεν είναι ενός έγκυρου τετραγώνου. Προσπαθήστε ξανά" << std::endl;
+        return {is_rect, diagonal, side_length, perimeter};
+    }else
+    {
+        return {is_rect, 0.0f, 0.0f, 0.0f};
     }
-
-
 }
 
 
-TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle){
+TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle)
+{
     bool is_triangle = false;
     // τσεκάρουμε αν ΟΝΤΩΣ υπάρχει το δοσμένο τρίγωνο
     if 
