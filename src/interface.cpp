@@ -168,7 +168,7 @@ void DisplayApplicationInfo()
     std::cout << "Εκδόθηκε: " << RELEASE_DATE << std::endl;
     std::cout << "Άδεια Ανοιχτού Κώδικα: " << LICENSE << std::endl;
     std::cout << std::endl;
-    std::cout << "(c) " << RELEASE_YEAR << " " << COPYRIGHT_NOTICE << dnl;
+    std::cout << "Copyright (c) " << RELEASE_YEAR << " " << COPYRIGHT_NOTICE << dnl;
 
     std::cout << "Πατήστε οποιοδήποτε κουμπί για συνέχεια στο μενού επιλογών.";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
