@@ -1,2 +1,6 @@
+COMP = g++
+SRC = $(wildcard src/*.cpp)
+OUT_DIR = build/trigonator.exe
+
 default:
-	g++ $(wildcard src/*.cpp) -o trigonator.exe -static-libstdc++ -static-libgcc
+	$(COMP) $(SRC) -o $(OUT_DIR) -static-libstdc++ -static-libgcc -static-libglfw3
