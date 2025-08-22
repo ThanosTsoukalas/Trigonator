@@ -89,16 +89,15 @@ TriangleProperties CalculateTriangleProperties(Triangle* givenTriangle)
         // εύρεση τύπου τριγώνου
         std::string triangle_type;
 
-        if (ab == ac && ac == cb)
+        if (ab == ac || ac == cb || ab == cb)
+        {
+            triangle_type = "Ισοσκελές";
+            largest_side = nullptr;
+        }
+        else if (ab == ac && ac == cb && ab == cb)
         {
             triangle_type = "Ισόπλευρο και Ισοσκελές";
             largest_side = nullptr;
-        }
-
-        // ---------------------------------
-
-        if (ab == ac && ac == cb && ab == cb){
-            triangle_type = "Ισοσκελές";
         }
         else
         {
