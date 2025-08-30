@@ -1,6 +1,10 @@
 COMP = g++
-SRC = $(wildcard src/*.cpp)
+SRC = $(wildcard src/*.cpp) $(wildcard src/graphics_engine/*.cpp) $(wildcard src/essentials/*.cpp) $(wildcard src/math/*.cpp) $(wildcard include/glad/*.c) $(wildcard src/gui_calculator/*.cpp)
 OUT_DIR = build/trigonator.exe
 
+INCLUDE_DIRS = -Iinclude -Isrc/graphics_engine -Isrc/essentials -Isrc/math
+LIB_DIRS = -Llib
+LIBS = -lmingw32 -lglfw3dll -lgdi32
+
 default:
-	$(COMP) $(SRC) -o $(OUT_DIR) -static-libstdc++ -static-libgcc -static-libglfw3
+	$(COMP) $(SRC) -o $(OUT_DIR) $(INCLUDE_DIRS) $(LIB_DIRS) $(LIBS) -static-libstdc++ -static-libgcc
