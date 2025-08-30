@@ -1,11 +1,14 @@
-#include "types.h"
-#include "calculator.h"
-#include "interface.h"
+#include <types.h>
+#include <interface.h>
+#include <calculator.h>
+
+#include "gui_calculator/GuiCalculator.hpp"
 
 #include <iostream>
+
 #include <cstdlib>
 
-int main (){
+int main (int argc, char *argv[]){
     SetApplicationTitle("Trigonator v"APP_VER);
     SetGreekCharScheme();
 
@@ -18,6 +21,7 @@ int main (){
             "Ανάλυση Τετραγώνου",
             "Εκκαθάριση Τερματικού",
             "Σχετικά με το Τριγωνέιτορ",
+            "Έναρξη γραφικού περιβάλλοντος",
             "Έξοδος"
         });
 
@@ -29,9 +33,9 @@ int main (){
         }
         else if (option == "Ανάλυση Τετραγώνου")
         {
-            Rectangle rectangle_to_analyze = GetRectangleVertices();
-            RectangleProperties rectangle_props = CalculateRectangleProperties(&rectangle_to_analyze);
-            DisplayRectangleInfo(rectangle_props);
+            Rect Rect_to_analyze = GetRectVertices();
+            RectProperties Rect_props = CalculateRectProperties(&Rect_to_analyze);
+            DisplayRectInfo(Rect_props);
         }
         else if (option == "Έξοδος")
         {
@@ -46,6 +50,10 @@ int main (){
         {
             DisplayApplicationInfo();
         }
+        else if (option == "Έναρξη γραφικού περιβάλλοντος")
+        {
+            GuiCalculatorInit();
+        }
         else
         {
             std::cout << "Δεν υπάρχει εντολή με ταυτοποιητή [" << option << "]. Δοκιμάστε ξανά." << std::endl;
@@ -55,3 +63,4 @@ int main (){
 
     return 0;
 }
+
