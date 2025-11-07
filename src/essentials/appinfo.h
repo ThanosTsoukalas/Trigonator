@@ -1,8 +1,8 @@
 #ifndef APP_INFO_H
 #define APP_INFO_H
 
-#define APP_VER "1.3"
-#define RELEASE_DATE "Αύγουστος 2025"
+#define APP_VER "1.4 Beta"
+#define RELEASE_DATE "Σεπτέμβριος 2025"
 #define RELEASE_YEAR "2025"
 #define LICENSE "MIT"
 #define COPYRIGHT_NOTICE "Θάνος Τσουκαλάς και όλοι οι συνεισφέροντες μέχρι την παρούσα έκδοση."
