@@ -2,7 +2,8 @@
 #include <interface.h>
 #include <calculator.h>
 
-#include "gui_calculator/GuiCalculator.hpp"
+
+#include "GuiCalculator/GuiCalculator.hpp"
 
 #include <iostream>
 
