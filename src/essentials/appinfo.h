@@ -2,10 +2,10 @@
 #define APP_INFO_H
 
 #define APP_VER "1.4 Beta"
-#define RELEASE_DATE "Σεπτέμβριος 2025"
+#define RELEASE_DATE "Νοέμβριος 2025"
 #define RELEASE_YEAR "2025"
-#define LICENSE "MIT"
-#define COPYRIGHT_NOTICE "Θάνος Τσουκαλάς και όλοι οι συνεισφέροντες μέχρι την παρούσα έκδοση."
+#define LICENSE "MIT (Παραλλαγή NON-AI)"
+#define COPYRIGHT_NOTICE "Θάνος Τσουκαλάς και όλοι οι συνεισφέροντες μέχρι την παρούσα έκδοση"
 #define IS_PRE_RELEASE true
 /*
     Τσεκάρουμε την αρχιτεκτονική 
