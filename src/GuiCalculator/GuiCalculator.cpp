@@ -19,7 +19,11 @@ void GuiCalculatorInit()
         0.5f, -0.5f
     };
 
+    GLuint vao;
     GLuint buffer;
+
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
 
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
@@ -31,15 +35,15 @@ void GuiCalculatorInit()
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     std::string vertexShader = 
-    "#version 330 core \n "
-    "layout(location = 0) in vec4 position; \n "
+    "#version 410 compatibility \n "
+    "layout(location = 0) in vec2 position; \n "
     "void main () \n"
     "{ \n"
     "   gl_Position = position; \n"
     "}\n";
 
     std::string fragmentShader = 
-    "#version 330 core \n "
+    "#version 410 compatibility \n "
     "layout(location = 0) out vec4 color; \n "
     "void main ()\n"
     "{ \n"
@@ -57,13 +61,17 @@ void GuiCalculatorInit()
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);  // Black background
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(shader);
-        glBindVertexArray(buffer);
+
+        glBindVertexArray(vao);
         glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(0);
 
         glfwSwapBuffers(applicationWindow.window_ptr);
         glfwPollEvents();
     }
 
     glDeleteProgram(shader);
+    glDeleteBuffers(1, &buffer);
+    glDeleteVertexArrays(1, &vao);
     applicationWindow.destroy();
 }

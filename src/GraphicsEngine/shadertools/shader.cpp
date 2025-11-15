@@ -18,7 +18,7 @@ static unsigned int CompileShader(unsigned int type, const std::string &source)
         char *message = (char*)alloca(length * sizeof(char));
         glGetShaderInfoLog(id, length, &length, message);
 
-        std::cout << "OpenGL: Failed to compile"<<
+        std::cout << "OpenGL: αποτυχία μεταγλώττισης "<<
         (type == GL_VERTEX_SHADER? "Vertex" : "Fragment")
         <<" shader!" << std::endl;
 
@@ -33,7 +33,7 @@ static unsigned int CompileShader(unsigned int type, const std::string &source)
     return id;
 }
 
-static unsigned int CreateShader (std::string& vertexShader, std::string& fragmentShader)
+unsigned int CreateShader (std::string& vertexShader, std::string& fragmentShader)
 {
     unsigned int program = glCreateProgram();
 
