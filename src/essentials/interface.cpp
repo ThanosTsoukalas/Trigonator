@@ -166,13 +166,17 @@ void DisplayApplicationInfo()
 
     std::cout << "Τριγωνέιτορ (Trigonator) v" << APP_VER;
 
-    if (IS_PRE_RELEASE)
+    if (IS_PRE_RELEASE == true)
     {
-        std::cout << " Beta" << std::endl;
+        std::cout << " Beta ";
+        if((int)PRE_RELEASE_ITERATION > 1)
+            std::cout << PRE_RELEASE_ITERATION << dnl;
+        else
+            std::cout << dnl;
     }
     else
     {
-        std::cout << std::endl;
+        std::cout << dnl;
     }
 
     std::cout << "Αρχιτεκτονική: " << ARCHITECTURE << std::endl;

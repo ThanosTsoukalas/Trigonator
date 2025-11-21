@@ -1,12 +1,13 @@
 #ifndef APP_INFO_H
 #define APP_INFO_H
 
-#define APP_VER "1.4 Beta"
+#define APP_VER "1.4"
 #define RELEASE_DATE "Νοέμβριος 2025"
 #define RELEASE_YEAR "2025"
 #define LICENSE "MIT (Παραλλαγή NON-AI)"
 #define COPYRIGHT_NOTICE "Θάνος Τσουκαλάς και όλοι οι συνεισφέροντες μέχρι την παρούσα έκδοση"
 #define IS_PRE_RELEASE true
+#define PRE_RELEASE_ITERATION 2
 /*
     Τσεκάρουμε την αρχιτεκτονική 
     Κώδικας από: https://stackoverflow.com/a/1505631/22320491

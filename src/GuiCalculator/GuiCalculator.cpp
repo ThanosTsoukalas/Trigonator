@@ -10,7 +10,7 @@ void GuiCalculatorInit()
 
     applicationWindow.setSize(1000, 700);
     applicationWindow.setPos(0, 0);
-    applicationWindow.setTitle("Trigonator GUI ("APP_VER")");
+    applicationWindow.setTitle("Trigonator GUI ("APP_VER") Beta 2");
     applicationWindow.init();
 
     float positions[6] = {

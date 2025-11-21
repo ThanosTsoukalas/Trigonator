@@ -1,6 +1,7 @@
 #include <types.h>
 #include <interface.h>
 #include <calculator.h>
+#include <appinfo.h>
 
 
 #include "GuiCalculator/GuiCalculator.hpp"
@@ -10,11 +11,27 @@
 #include <cstdlib>
 
 int main (int argc, char *argv[]){
-    SetApplicationTitle("Trigonator v"APP_VER);
+
+    if (IS_PRE_RELEASE == true)
+    {
+        std::string pre_release_num = std::to_string(PRE_RELEASE_ITERATION);
+        std::string title = "Trigonator v"APP_VER" Beta " + std::to_string(PRE_RELEASE_ITERATION); 
+        SetApplicationTitle(title);
+    }else
+    {
+        SetApplicationTitle("Trigonator v"APP_VER);
+    }
+    
     SetGreekCharScheme();
 
-    std::cout << "Τριγωνέιτορ v" << APP_VER << dnl;
-
+    if (IS_PRE_RELEASE == true)
+    {
+        std::cout << "Τριγωνέιτορ v" << APP_VER << " Beta " << PRE_RELEASE_ITERATION << dnl;
+    }else
+    {
+        std::cout << "Τριγωνέιτορ v" << APP_VER << dnl;
+    }
+    
     while (true)
     {   
         std::string option = DisplayAndGetOption({
