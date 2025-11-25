@@ -5,8 +5,8 @@
 #include <vector>
 
 typedef struct Point{
-    int x;
-    int y;
+    float x;
+    float y;
 }Point;
 
 typedef struct Triangle{
