@@ -5,7 +5,7 @@ const char* dnl = "\n\n";
 std::string DisplayAndGetOption(std::vector<std::string> options)
 {
     int option_couter = 1;
-    int usr_option;
+    unsigned int usr_option;
     
     std::cout << "Επιλογές:" << std::endl;
 
